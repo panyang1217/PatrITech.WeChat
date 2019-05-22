@@ -1,11 +1,12 @@
-﻿using Refit;
+﻿using PatrITech.WeChat.OfficialAccount.Model;
+using Refit;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PatrITech.WeChat.OfficialAccount.User.Api
+namespace PatrITech.WeChat.OfficialAccount.Api
 {
     interface IUserClient
     {
@@ -46,5 +47,17 @@ namespace PatrITech.WeChat.OfficialAccount.User.Api
         Task<HttpResponseMessage> BatchGetUserInfo(
             [AliasAs("access_token")][Query] string accessToken,
             [AliasAs("openid")][Body(BodySerializationMethod.Serialized)] BatchGetUsersRequest openId);
+
+        /// <summary>
+        /// 设置用户备注名
+        /// </summary>
+        /// <param name="accessToken"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        /// <seealso cref="https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421140838"/>
+        [Post("/cgi-bin/user/info/updateremark")]
+        Task<HttpResponseMessage> UpdateRemark(
+            [AliasAs("access_token")][Query] string accessToken,
+            [Body(BodySerializationMethod.Serialized)] UpdateRemarkRequest request);
     }
 }

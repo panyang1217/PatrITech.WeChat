@@ -1,14 +1,9 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using PatrITech.WeChat.OfficialAccount.DependencyInjection;
-using PatrITech.WeChat.OfficialAccount.User;
-using PatrITech.WeChat.OfficialAccount.User.Api;
+using PatrITech.WeChat.OfficialAccount.Model;
 using Shouldly;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace PatrITech.WeChat.OfficialAccount.Tests
@@ -23,6 +18,12 @@ namespace PatrITech.WeChat.OfficialAccount.Tests
 
             result.ResultState.Successed.ShouldBeTrue();
             result.Users.Data.OpenId.ShouldNotBeEmpty();
+        }
+
+        protected override void ConfigureService(IServiceCollection services, IConfiguration config)
+        {
+            services.AddOfficialAccount(config)
+                .WithUserService();
         }
 
         [Fact]
@@ -61,10 +62,41 @@ namespace PatrITech.WeChat.OfficialAccount.Tests
             userInfoListResult.userInfoList[0].SHA1.ShouldNotBeEmpty();
         }
 
-        protected override void ConfigureService(IServiceCollection services, IConfiguration config)
+        [Fact]
+        public async void UpdateRemark_Test()
         {
-            services.AddOfficialAccount(config)
-                .WithUserService();
+            var expectedRemark = "Test Remark";
+            var usersResult = await UserService.GetUsers(null);
+            var request = new BatchGetUsersRequest();
+            request.UserList = usersResult.Users.Data.OpenId.Select(id => new BatchGetUsersRequest.ListItem()
+            {
+                OpenId = id,
+                Lang = "zh_CN"
+            }).ToArray();
+
+            var userInfoListResult = await UserService.BatchGetUserInfo(request);
+            userInfoListResult.ResultState.Successed.ShouldBeTrue();
+            userInfoListResult.userInfoList[0].Remark.ShouldNotBe(expectedRemark);
+
+            var updateRemarkResult = await UserService.UpdateRemark(new UpdateRemarkRequest()
+            {
+                OpenId = userInfoListResult.userInfoList[0].OpenId,
+                Remark = expectedRemark
+            });
+
+            updateRemarkResult.Successed.ShouldBeTrue();
+
+            userInfoListResult = await UserService.BatchGetUserInfo(request);
+            userInfoListResult.ResultState.Successed.ShouldBeTrue();
+            userInfoListResult.userInfoList[0].Remark.ShouldBe(expectedRemark);
+
+            updateRemarkResult = await UserService.UpdateRemark(new UpdateRemarkRequest()
+            {
+                OpenId = userInfoListResult.userInfoList[0].OpenId,
+                Remark = ""
+            });
+
+            updateRemarkResult.Successed.ShouldBeTrue();
         }
     }
 }

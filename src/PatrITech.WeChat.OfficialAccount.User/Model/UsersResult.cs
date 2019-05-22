@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace PatrITech.WeChat.OfficialAccount.User.Model
+namespace PatrITech.WeChat.OfficialAccount.Model
 {
 
     public class UsersResult

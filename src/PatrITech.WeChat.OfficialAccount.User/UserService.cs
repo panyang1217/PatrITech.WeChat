@@ -1,14 +1,9 @@
 ﻿using PatrITech.WeChat.OfficialAccount.Model;
-using PatrITech.WeChat.OfficialAccount.User.Api;
-using PatrITech.WeChat.OfficialAccount.User.Model;
 using Refit;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using PatrITech.WeChat.OfficialAccount;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
 using PatrITech.WeChat.OfficialAccount.Configuration;
+using PatrITech.WeChat.OfficialAccount.Api;
 
 namespace PatrITech.WeChat.OfficialAccount
 {
@@ -63,5 +58,17 @@ namespace PatrITech.WeChat.OfficialAccount
         public Task<(UserInfoResult[] userInfoList, ResultState ResultState)> BatchGetUserInfo(BatchGetUsersRequest request
             , string appId, string secret)
             => Invoke(token => DoBatchGetUserInfo(token, request), appId, secret);
+
+        protected virtual async Task<ResultState> DoUpdateRemark(IToken token, UpdateRemarkRequest request)
+        {
+            var resp = await _userClient.UpdateRemark(token.Token, request);
+            return await resp.ReadAsResult();
+        }
+        public Task<ResultState> UpdateRemark(UpdateRemarkRequest request)
+            => Invoke(token => DoUpdateRemark(token, request));
+        public Task<ResultState> UpdateRemark(UpdateRemarkRequest request, string accountName)
+            => Invoke(token => DoUpdateRemark(token, request), accountName);
+        public Task<ResultState> UpdateRemark(UpdateRemarkRequest request, string appId, string secret)
+            => Invoke(token => DoUpdateRemark(token, request), appId, secret);
     }
 }
