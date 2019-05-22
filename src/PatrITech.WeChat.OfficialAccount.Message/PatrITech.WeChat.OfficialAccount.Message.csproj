@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>PatrITech.WeChat.OfficialAccount</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Refit" Version="4.6.107" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PatrITech.WeChat.OfficialAccount.Core\PatrITech.WeChat.OfficialAccount.Core.csproj" />
+  </ItemGroup>
+
+</Project>

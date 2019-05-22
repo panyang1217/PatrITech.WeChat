@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PatrITech.WeChat.OfficialAccount.Core\PatrITech.WeChat.OfficialAccount.Core.csproj" />
+    <ProjectReference Include="..\PatrITech.WeChat.OfficialAccount.Message\PatrITech.WeChat.OfficialAccount.Message.csproj" />
+    <ProjectReference Include="..\PatriTech.WeChat.OfficialAccount.Token\PatrITech.WeChat.OfficialAccount.Token.csproj" />
+    <ProjectReference Include="..\PatrITech.WeChat.OfficialAccount.User\PatrITech.WeChat.OfficialAccount.User.csproj" />
+  </ItemGroup>
+
+</Project>

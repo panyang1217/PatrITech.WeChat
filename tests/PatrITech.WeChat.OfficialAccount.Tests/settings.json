@@ -1,0 +1,10 @@
+{
+  "baseUrl": "",
+  "defaultAccountName": "default",
+  "accounts": {
+    "default": {
+      "appId": "wx0977d07647b7c055",
+      "secret": "5dfc0a101eb53d112979cf3f37cb3d91"
+    }
+  }
+}
