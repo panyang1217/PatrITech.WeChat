@@ -59,5 +59,98 @@ namespace PatrITech.WeChat.OfficialAccount.Api
         Task<HttpResponseMessage> UpdateRemark(
             [AliasAs("access_token")][Query] string accessToken,
             [Body(BodySerializationMethod.Serialized)] UpdateRemarkRequest request);
+
+        /// <summary>
+        /// 创建标签
+        /// </summary>
+        /// <param name="accessToken"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        /// <seealso cref="https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421140837"/>
+        [Post("/cgi-bin/tags/create")]
+        Task<HttpResponseMessage> CreateTag(
+            [AliasAs("access_token")][Query] string accessToken,
+            [Body(BodySerializationMethod.Serialized)] CreateTagRequest request);
+
+        /// <summary>
+        /// 获取公众号已创建的标签
+        /// </summary>
+        /// <param name="accessToken"></param>
+        /// <returns></returns>
+        /// <seealso cref="https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421140837"/>
+        [Get("/cgi-bin/tags/get")]
+        Task<HttpResponseMessage> GetTags([AliasAs("access_token")][Query] string accessToken);
+
+        /// <summary>
+        /// 编辑标签
+        /// </summary>
+        /// <param name="accessToken"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        /// <seealso cref="https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421140837"/>
+        [Post("/cgi-bin/tags/update")]
+        Task<HttpResponseMessage> UpdateTag(
+            [AliasAs("access_token")][Query] string accessToken,
+            [Body(BodySerializationMethod.Serialized)] UpdateTagRequest request);
+
+        /// <summary>
+        /// 删除标签
+        /// </summary>
+        /// <param name="accessToken"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        /// <seealso cref="https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421140837"/>
+        [Post("/cgi-bin/tags/delete")]
+        Task<HttpResponseMessage> DeleteTag(
+             [AliasAs("access_token")][Query] string accessToken,
+             [Body(BodySerializationMethod.Serialized)] DeleteTagRequest request);
+
+        /// <summary>
+        /// 获取标签下粉丝列表
+        /// </summary>
+        /// <param name="accessToken"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        /// <seealso cref="https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421140837"/>
+        [Post("/cgi-bin/user/tag/get")]
+        Task<HttpResponseMessage> GetUsersWithTag(
+            [AliasAs("access_token")][Query] string accessToken,
+            [Body(BodySerializationMethod.Serialized)] GetUsersWithTagRequest request);
+
+        /// <summary>
+        /// 批量为用户打标签
+        /// </summary>
+        /// <param name="accessToken"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        /// <seealso cref="https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421140837"/>
+        [Post("/cgi-bin/tags/members/batchtagging")]
+        Task<HttpResponseMessage> BatchTagging(
+            [AliasAs("access_token")][Query] string accessToken,
+            [Body(BodySerializationMethod.Serialized)] BatchTaggingRequest request);
+
+        /// <summary>
+        /// 批量为用户取消标签
+        /// </summary>
+        /// <param name="accessToken"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        /// <seealso cref="https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421140837"/>
+        [Post("/cgi-bin/tags/members/batchuntagging")]
+        Task<HttpResponseMessage> BatchUntagging(
+            [AliasAs("access_token")][Query] string accessToken,
+            [Body(BodySerializationMethod.Serialized)] BatchTaggingRequest request);
+
+        /// <summary>
+        /// 获取用户身上的标签列表
+        /// </summary>
+        /// <param name="accessToken"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        /// <seealso cref="https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421140837"/>
+        [Post("/cgi-bin/tags/getidlist")]
+        Task<HttpResponseMessage> GetTagsByUser(
+            [AliasAs("access_token")][Query] string accessToken,
+            [Body(BodySerializationMethod.Serialized)] GetTagsByUserRequest request);
     }
 }

@@ -29,7 +29,7 @@ namespace PatrITech.WeChat.OfficialAccount
             }
         }
 
-        public async static Task<(T[], ResultState)> ReadAsResults<T>(this HttpResponseMessage resp, string jsonPath) where T : class
+        public async static Task<(T[], ResultState)> ReadAsResults<T>(this HttpResponseMessage resp, string jsonPath)
         {
             var jobj = JObject.Load(new JsonTextReader(new StreamReader(await resp.Content.ReadAsStreamAsync())));
 

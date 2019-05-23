@@ -42,12 +42,13 @@ namespace PatrITech.WeChat.OfficialAccount.Tests
             template.Title.ShouldNotBeNullOrEmpty();
         }
 
-        [Fact(Skip = "调用次数限制")]
+        [Fact]
         public async void SetIndustry()
         {
             var result = await TemplateService.SetIndustry(16, 38);
 
-            result.Successed.ShouldBeTrue();
+
+            (result.Successed || result.ErrorCode == 43100).ShouldBeTrue();
         }
 
         [Fact]

@@ -98,5 +98,103 @@ namespace PatrITech.WeChat.OfficialAccount.Tests
 
             updateRemarkResult.Successed.ShouldBeTrue();
         }
+
+        [Fact]
+        public async void CreateTag_Test()
+        {
+            string expectTagName = "test create";
+
+            var result = await UserService.CreateTag(expectTagName);
+
+            result.ResultStatue.Successed.ShouldBeTrue();
+            var tag = result.Result.Tag;
+            tag.Name.ShouldBe(expectTagName);
+            tag.Id.HasValue.ShouldBeTrue();
+            tag.Id.Value.ShouldBeGreaterThan(0);
+
+            var deleteTagResult = await UserService.DeleteTag(tag.Id.Value);
+
+            deleteTagResult.Successed.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async void GetTags_Test()
+        {
+            string expectTagName = "test get";
+
+            await UserService.CreateTag(expectTagName);
+
+            var result = await UserService.GetTags();
+
+            result.ResultState.Successed.ShouldBeTrue();
+            result.Tags.ShouldNotBeEmpty();
+            result.Tags.Length.ShouldBeGreaterThan(0);
+            var tag = result.Tags.Where(t => t.Name == expectTagName).Single();
+            tag.Name.ShouldBe(expectTagName);
+            tag.Id.HasValue.ShouldBeTrue();
+            tag.Id.Value.ShouldBeGreaterThan(0);
+
+            var deleteTagResult = await UserService.DeleteTag(tag.Id.Value);
+
+            deleteTagResult.Successed.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async void UpdateTag_Test()
+        {
+            string originTagName = "origin test update";
+            string expectedTagName = "expected test update";
+
+            var createTagResult = await UserService.CreateTag(originTagName);
+            var tag = createTagResult.Result.Tag;
+
+            var updateTagResult = await UserService.UpdateTag(tag.Id.Value, expectedTagName);
+
+            updateTagResult.Successed.ShouldBeTrue();
+
+            var deleteTagResult = await UserService.DeleteTag(tag.Id.Value);
+
+            deleteTagResult.Successed.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async void Tagging_Test()
+        {
+            const string userOpenId = "oYUL-54BgAKpjk_bmtwSeFtKs_Sc";
+
+            var tagResult = await UserService.GetTags();
+            var tag = tagResult.Tags[0];
+
+            var taggingResult = await UserService.BatchTagging(tag.Id.Value, new string[] { userOpenId });
+
+            taggingResult.Successed.ShouldBeTrue();
+
+            var usersResult = await UserService.GetUsersWithTag(tag.Id.Value, null);
+
+            usersResult.ResultState.Successed.ShouldBeTrue();
+            usersResult.Users.Count.ShouldBeGreaterThan(0);
+            usersResult.Users.Data.OpenId.Contains(userOpenId).ShouldBeTrue();
+
+            var getTagsResult = await UserService.GetTagsByUser(userOpenId);
+
+            getTagsResult.ResultState.Successed.ShouldBeTrue();
+            getTagsResult.TagIds.ShouldNotBeNull();
+            getTagsResult.TagIds.ShouldNotBeEmpty();
+            getTagsResult.TagIds.Contains(tag.Id.Value).ShouldBeTrue();
+
+            var untaggingResult = await UserService.BatchUntagging(tag.Id.Value, new string[] { userOpenId });
+
+            untaggingResult.Successed.ShouldBeTrue();
+
+            usersResult = await UserService.GetUsersWithTag(tag.Id.Value, null);
+
+            usersResult.ResultState.Successed.ShouldBeTrue();
+            usersResult.Users.Count.ShouldBe(0);
+
+            getTagsResult = await UserService.GetTagsByUser(userOpenId);
+
+            getTagsResult.ResultState.Successed.ShouldBeTrue();
+            getTagsResult.TagIds.ShouldBeEmpty();
+        }
     }
 }

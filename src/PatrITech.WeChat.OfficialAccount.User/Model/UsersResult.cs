@@ -8,6 +8,12 @@ namespace PatrITech.WeChat.OfficialAccount.Model
 
     public class UsersResult
     {
+        public class DataPayload
+        {
+            [JsonProperty(PropertyName = "openid")]
+            public string[] OpenId { get; set; }
+        }
+
         [JsonProperty(PropertyName = "total")]
         public int Total { get; set; }
 
@@ -15,18 +21,9 @@ namespace PatrITech.WeChat.OfficialAccount.Model
         public int Count { get; set; }
 
         [JsonProperty(PropertyName = "data")]
-        public DataItem Data { get; set; }
+        public DataPayload Data { get; set; }
 
         [JsonProperty(PropertyName = "next_openid")]
         public string NextOpenId { get; set; }
-
-        public class DataItem
-        {
-            [JsonProperty(PropertyName = "openid")]
-            public string[] OpenId { get; set; }
-        }
     }
-
-    
-
 }
