@@ -261,3 +261,4 @@ __pycache__/
 *.pyc
 
 !PatrITech.WeChat.OfficialAccount.User
+/nuget

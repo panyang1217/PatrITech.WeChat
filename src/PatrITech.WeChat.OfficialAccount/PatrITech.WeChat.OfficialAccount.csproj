@@ -3,6 +3,9 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace />
+    <Description>微信SDK</Description>
+    <Company>PatrITech</Company>
+    <Authors>PatrITech</Authors>
   </PropertyGroup>
 
   <ItemGroup>
