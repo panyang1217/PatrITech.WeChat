@@ -32,7 +32,7 @@ steps:
   inputs:
     command: 'push'
     feedsToUse: 'select'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.csprj'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.csproj'
     nuGetFeedType: 'internal'
     publishVstsFeed: 'PatrITech'
     versioningScheme: 'off'
