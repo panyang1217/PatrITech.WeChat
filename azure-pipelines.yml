@@ -25,14 +25,14 @@ steps:
   inputs:
     command: 'pack'
     feedsToUse: 'select'
-    packagesToPack: '**/*.nuspec'
+    packagesToPack: '**/PatrITech.WeChat.OfficialAccount.csproj'
     nobuild: true
     versioningScheme: 'off'
 - task: DotNetCoreCLI@2
   inputs:
     command: 'push'
     feedsToUse: 'select'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.csproj'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
     nuGetFeedType: 'internal'
     publishVstsFeed: 'PatrITech'
     versioningScheme: 'off'
