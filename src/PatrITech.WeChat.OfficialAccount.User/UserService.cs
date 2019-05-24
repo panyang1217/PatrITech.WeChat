@@ -51,19 +51,19 @@ namespace PatrITech.WeChat.OfficialAccount
 
         #region BatchGetUserInfo
         protected virtual async Task<(UserInfoResult[] userInfoList, ResultState ResultState)> DoBatchGetUserInfo(IToken token
-            , BatchGetUsersRequest request)
+            , string[] openIds, string lang)
         {
-            var resp = await _userClient.BatchGetUserInfo(token.Token, request);
+            var resp = await _userClient.BatchGetUserInfo(token.Token, new BatchGetUsersRequest(openIds, lang));
             return await resp.ReadAsResults<UserInfoResult>("$.user_info_list[*]");
         }
-        public Task<(UserInfoResult[] userInfoList, ResultState ResultState)> BatchGetUserInfo(BatchGetUsersRequest request)
-            => Invoke(token => DoBatchGetUserInfo(token, request));
-        public Task<(UserInfoResult[] userInfoList, ResultState ResultState)> BatchGetUserInfo(BatchGetUsersRequest request
+        public Task<(UserInfoResult[] userInfoList, ResultState ResultState)> BatchGetUserInfo(string[] openIds, string lang)
+            => Invoke(token => DoBatchGetUserInfo(token, openIds, lang));
+        public Task<(UserInfoResult[] userInfoList, ResultState ResultState)> BatchGetUserInfo(string[] openIds, string lang
             , string accountName)
-            => Invoke(token => DoBatchGetUserInfo(token, request), accountName);
-        public Task<(UserInfoResult[] userInfoList, ResultState ResultState)> BatchGetUserInfo(BatchGetUsersRequest request
+            => Invoke(token => DoBatchGetUserInfo(token, openIds, lang), accountName);
+        public Task<(UserInfoResult[] userInfoList, ResultState ResultState)> BatchGetUserInfo(string[] openIds, string lang
             , string appId, string secret)
-            => Invoke(token => DoBatchGetUserInfo(token, request), appId, secret);
+            => Invoke(token => DoBatchGetUserInfo(token, openIds, lang), appId, secret);
         #endregion
 
         #region UpdateRemark

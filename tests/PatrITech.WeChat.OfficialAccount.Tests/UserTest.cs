@@ -44,16 +44,9 @@ namespace PatrITech.WeChat.OfficialAccount.Tests
         [Fact]
         public async void BatchGetUserInfo_Test()
         {
-            var result = await UserService.GetUsers(null);
+            var (userList, state) = await UserService.GetUsers(null);
 
-            var request = new BatchGetUsersRequest();
-            request.UserList = result.Users.Data.OpenId.Select(id => new BatchGetUsersRequest.ListItem()
-            {
-                OpenId = id,
-                Lang = "zh_CN"
-            }).ToArray();
-
-            var userInfoListResult = await UserService.BatchGetUserInfo(request);
+            var userInfoListResult = await UserService.BatchGetUserInfo(userList.Data.OpenId, "zh_CN");
 
             userInfoListResult.ResultState.Successed.ShouldBeTrue();
             userInfoListResult.userInfoList.ShouldNotBeEmpty();
@@ -66,15 +59,9 @@ namespace PatrITech.WeChat.OfficialAccount.Tests
         public async void UpdateRemark_Test()
         {
             var expectedRemark = "Test Remark";
-            var usersResult = await UserService.GetUsers(null);
-            var request = new BatchGetUsersRequest();
-            request.UserList = usersResult.Users.Data.OpenId.Select(id => new BatchGetUsersRequest.ListItem()
-            {
-                OpenId = id,
-                Lang = "zh_CN"
-            }).ToArray();
-
-            var userInfoListResult = await UserService.BatchGetUserInfo(request);
+            var (userList, state) = await UserService.GetUsers(null);
+            
+            var userInfoListResult = await UserService.BatchGetUserInfo(userList.Data.OpenId, "zh_CN");
             userInfoListResult.ResultState.Successed.ShouldBeTrue();
             userInfoListResult.userInfoList[0].Remark.ShouldNotBe(expectedRemark);
 
@@ -86,7 +73,7 @@ namespace PatrITech.WeChat.OfficialAccount.Tests
 
             updateRemarkResult.Successed.ShouldBeTrue();
 
-            userInfoListResult = await UserService.BatchGetUserInfo(request);
+            userInfoListResult = await UserService.BatchGetUserInfo(userList.Data.OpenId, "zh_CN");
             userInfoListResult.ResultState.Successed.ShouldBeTrue();
             userInfoListResult.userInfoList[0].Remark.ShouldBe(expectedRemark);
 
