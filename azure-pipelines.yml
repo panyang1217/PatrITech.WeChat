@@ -21,18 +21,18 @@ steps:
     projects: 'tests/**/*.csproj'
     feedsToUse: 'select'
     versioningScheme: 'off'
-- task: NuGetCommand@2
+- task: DotNetCoreCLI@2
   inputs:
     command: 'pack'
     feedsToUse: 'select'
-    packagesToPack: '**/PatrITech.WeChat.OfficialAccount.csproj'
+    packagesToPack: '**/*.nuspec'
+    nobuild: true
     versioningScheme: 'off'
-    includeReferencedProjects: true
-- task: NuGetCommand@2
+- task: DotNetCoreCLI@2
   inputs:
     command: 'push'
     feedsToUse: 'select'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.csprj'
     nuGetFeedType: 'internal'
     publishVstsFeed: 'PatrITech'
     versioningScheme: 'off'
