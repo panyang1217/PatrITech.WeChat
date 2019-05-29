@@ -1,8 +1,10 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
 using PatrITech.WeChat.OfficialAccount.DependencyInjection;
 using PatrITech.WeChat.OfficialAccount.Model;
 using Shouldly;
+using System;
 using System.Linq;
 using Xunit;
 
@@ -53,6 +55,10 @@ namespace PatrITech.WeChat.OfficialAccount.Tests
             userInfoListResult.userInfoList[0].Nickname.ShouldNotBeNullOrEmpty();
             userInfoListResult.userInfoList[0].Content.ShouldNotBeNullOrEmpty();
             userInfoListResult.userInfoList[0].SHA1.ShouldNotBeEmpty();
+
+            var obj = JsonConvert.DeserializeObject<UserInfoResult>(userInfoListResult.userInfoList[0].Content);
+            obj.ShouldNotBeNull();
+            obj.OpenId.ShouldBe(userInfoListResult.userInfoList[0].OpenId);
         }
 
         [Fact]

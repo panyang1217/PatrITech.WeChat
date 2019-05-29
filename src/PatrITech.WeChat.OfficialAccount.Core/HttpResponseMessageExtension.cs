@@ -56,7 +56,7 @@ namespace PatrITech.WeChat.OfficialAccount
                         if (result is IRawResult)
                         {
                             var raw = (result as IRawResult);
-                            raw.Content = token.ToString();
+                            raw.Content = t.ToString();
                             raw.SHA1 = SHA1(raw.Content);
                         }
 
