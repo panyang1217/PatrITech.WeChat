@@ -26,6 +26,12 @@ namespace PatrITech.WeChat.OfficialAccount
             _tokenClient = Refit.RestService.For<ITokenClient>(BaseUrl);
         }
 
+        public string GetAppId(string accountName)
+        {
+            var account = Options.Accounts[string.IsNullOrEmpty(accountName) ? Options.DefaultAccountName : accountName];
+            return account.AppId;
+        }
+
         public Task<(AccessToken AccessToken, ResultState ResultState)> GetAccessToken(string accountName)
         {
             var account = Options.Accounts[string.IsNullOrEmpty(accountName) ? Options.DefaultAccountName : accountName];

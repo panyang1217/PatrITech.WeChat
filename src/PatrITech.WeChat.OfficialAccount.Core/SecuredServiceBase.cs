@@ -17,6 +17,9 @@ namespace PatrITech.WeChat.OfficialAccount
             TokenService = tokenService;
         }
 
+        public string GetAppId(string accountName)
+            => TokenService.GetAppId(accountName);
+
         protected async Task<(T Payload, ResultState ResultState)> Invoke<T>(Func<IToken, Task<(T, ResultState)>> func)
         {
             var token = await TokenService.GetAccessToken();
@@ -31,7 +34,7 @@ namespace PatrITech.WeChat.OfficialAccount
             return await func(token);
         }
 
-        protected async Task<(T Payload, ResultState ResultState)> Invoke<T>(Func<IToken, Task<(T, ResultState)>> func,string appId, string secret)
+        protected async Task<(T Payload, ResultState ResultState)> Invoke<T>(Func<IToken, Task<(T, ResultState)>> func, string appId, string secret)
         {
             var token = await TokenService.GetAccessToken(appId, secret);
 
