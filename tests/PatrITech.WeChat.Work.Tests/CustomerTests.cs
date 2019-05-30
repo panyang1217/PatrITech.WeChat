@@ -39,9 +39,12 @@ namespace PatrITech.WeChat.Work.Tests
 
             (var exUserIdList, var state) = await CustomerService.ListExternalUser(userId);
 
-            state.Successed.ShouldBeTrue();
-            exUserIdList.ShouldNotBeEmpty();
-            exUserIdList.Length.ShouldBeGreaterThan(0);
+            Assert.True(state.Successed || state.ErrorCode == 84061, $"ListExternalUser Error: {{ErrorCode: {state.ErrorCode}, ErrorMessage: {state.ErrorMessage}}}");
+            if (state.Successed)
+            {
+                exUserIdList.ShouldNotBeEmpty();
+                exUserIdList.Length.ShouldBeGreaterThan(0);
+            }
         }
     }
 }
