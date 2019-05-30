@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PatrITech.WeChat.Work.Customer\PatrITech.WeChat.Work.Customer.csproj" />
     <ProjectReference Include="..\PatrITech.WeChat.Work.Token\PatrITech.WeChat.Work.Token.csproj" />
   </ItemGroup>
 

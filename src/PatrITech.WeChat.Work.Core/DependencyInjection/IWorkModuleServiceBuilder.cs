@@ -6,7 +6,7 @@ using System.Text;
 
 namespace PatrITech.WeChat.Work.DependencyInjection
 {
-    public interface IWorkModuleBuilder
+    public interface IWorkModuleServiceBuilder
     {
         IServiceCollection Services { get; }
         IConfiguration Config { get; }

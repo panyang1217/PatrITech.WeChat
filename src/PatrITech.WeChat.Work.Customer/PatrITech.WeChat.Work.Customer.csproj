@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -6,13 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="2.2.0" />
     <PackageReference Include="Refit" Version="4.6.107" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PatrITech.WeChat.Core\PatrITech.WeChat.Core.csproj" />
     <ProjectReference Include="..\PatrITech.WeChat.Work.Core\PatrITech.WeChat.Work.Core.csproj" />
+    <ProjectReference Include="..\PatrITech.WeChat.Work.Token\PatrITech.WeChat.Work.Token.csproj" />
   </ItemGroup>
 
 </Project>

@@ -6,9 +6,9 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace PatrITech.WeChat.Work.DependencyInjection
 {
-    public class WorkModuleBuilder : IWorkModuleBuilder
+    public class WorkModuleServiceBuilder : IWorkModuleServiceBuilder
     {
-        public WorkModuleBuilder(IServiceCollection services, IConfiguration config)
+        public WorkModuleServiceBuilder(IServiceCollection services, IConfiguration config)
         {
             Services = services ?? throw new ArgumentNullException(nameof(services));
             Config = config;

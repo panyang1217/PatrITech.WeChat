@@ -9,13 +9,13 @@ namespace PatrITech.WeChat.Work.DependencyInjection
 {
     public static class ServiceCollectionExtension
     {
-        public static IWorkModuleBuilder AddWorkModule(this IServiceCollection services, IConfiguration config)
+        public static IWorkModuleServiceBuilder AddWorkModule(this IServiceCollection services, IConfiguration config)
         {
             services.Configure<WorkOptions>(config);
             services.AddTransient<TokenService>();
             services.AddTransient<ITokenService, TokenService>();
 
-            return new WorkModuleBuilder(services, config);
+            return new WorkModuleServiceBuilder(services, config);
         }
     }
 }

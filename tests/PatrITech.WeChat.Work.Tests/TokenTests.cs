@@ -14,7 +14,6 @@ namespace PatrITech.WeChat.Work.Tests
 
         protected override void ConfigureService(IServiceCollection services, IConfiguration config)
         {
-            services.AddDistributedMemoryCache();
             services.AddWorkModule(config);
         }
 
