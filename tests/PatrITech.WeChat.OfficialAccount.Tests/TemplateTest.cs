@@ -4,6 +4,7 @@ using Xunit;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using PatrITech.WeChat.OfficialAccount.DependencyInjection;
+using PatrITech.WeChat.Test;
 
 namespace PatrITech.WeChat.OfficialAccount.Tests
 {

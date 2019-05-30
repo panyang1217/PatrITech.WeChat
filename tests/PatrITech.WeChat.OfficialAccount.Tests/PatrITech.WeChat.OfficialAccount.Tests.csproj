@@ -25,6 +25,7 @@
     <ProjectReference Include="..\..\src\PatriTech.WeChat.OfficialAccount.Token\PatrITech.WeChat.OfficialAccount.Token.csproj" />
     <ProjectReference Include="..\..\src\PatrITech.WeChat.OfficialAccount.User\PatrITech.WeChat.OfficialAccount.User.csproj" />
     <ProjectReference Include="..\..\src\PatrITech.WeChat.OfficialAccount\PatrITech.WeChat.OfficialAccount.csproj" />
+    <ProjectReference Include="..\..\src\PatrITech.WeChat.Test\PatrITech.WeChat.Test.csproj" />
   </ItemGroup>
 
   <ItemGroup>

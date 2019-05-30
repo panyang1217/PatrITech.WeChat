@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using PatrITech.WeChat.OfficialAccount.DependencyInjection;
 using PatrITech.WeChat.OfficialAccount.Model;
+using PatrITech.WeChat.Test;
 using Shouldly;
 using System;
 using System.Linq;

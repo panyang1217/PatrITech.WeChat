@@ -1,12 +1,11 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using PatrITech.WeChat.OfficialAccount.Configuration;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace PatrITech.WeChat.OfficialAccount.Tests
+namespace PatrITech.WeChat.Test
 {
     public abstract class TestBase
     {

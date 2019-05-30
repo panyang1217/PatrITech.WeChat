@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.329
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28922.388
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B82C676F-F33B-4D75-9BF8-88A4706F100A}"
 EndProject
@@ -19,7 +19,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatrITech.WeChat.OfficialAc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatrITech.WeChat.OfficialAccount.User", "src\PatrITech.WeChat.OfficialAccount.User\PatrITech.WeChat.OfficialAccount.User.csproj", "{998B6227-6421-4C5E-B3CA-E2E2AD249A19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatrITech.WeChat.OfficialAccount", "src\PatrITech.WeChat.OfficialAccount\PatrITech.WeChat.OfficialAccount.csproj", "{D938464F-EDB3-4F3F-9F55-4DF8E327FE45}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatrITech.WeChat.OfficialAccount", "src\PatrITech.WeChat.OfficialAccount\PatrITech.WeChat.OfficialAccount.csproj", "{D938464F-EDB3-4F3F-9F55-4DF8E327FE45}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatrITech.WeChat.Work", "src\PatrITech.WeChat.Work\PatrITech.WeChat.Work.csproj", "{4B67B646-626E-406B-9ABB-8C067C00C72A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatrITech.WeChat.Work.Core", "src\PatrITech.WeChat.Work.Core\PatrITech.WeChat.Work.Core.csproj", "{8C11F099-BB69-41EC-96DC-1905E247CA27}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatrITech.WeChat.Work.Token", "src\PatrITech.WeChat.Work.Token\PatrITech.WeChat.Work.Token.csproj", "{A4D2BBDD-A13A-4A66-A36A-1FE670D00E36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatrITech.WeChat.Work.Tests", "tests\PatrITech.WeChat.Work.Tests\PatrITech.WeChat.Work.Tests.csproj", "{7D29E040-91CC-4B96-AD45-2037B1DC07C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatrITech.WeChat.Test", "src\PatrITech.WeChat.Test\PatrITech.WeChat.Test.csproj", "{EDE95DE5-B587-4D10-AFCD-C4CA10060A48}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +65,26 @@ Global
 		{D938464F-EDB3-4F3F-9F55-4DF8E327FE45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D938464F-EDB3-4F3F-9F55-4DF8E327FE45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D938464F-EDB3-4F3F-9F55-4DF8E327FE45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B67B646-626E-406B-9ABB-8C067C00C72A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B67B646-626E-406B-9ABB-8C067C00C72A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B67B646-626E-406B-9ABB-8C067C00C72A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B67B646-626E-406B-9ABB-8C067C00C72A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C11F099-BB69-41EC-96DC-1905E247CA27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C11F099-BB69-41EC-96DC-1905E247CA27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C11F099-BB69-41EC-96DC-1905E247CA27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C11F099-BB69-41EC-96DC-1905E247CA27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4D2BBDD-A13A-4A66-A36A-1FE670D00E36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4D2BBDD-A13A-4A66-A36A-1FE670D00E36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4D2BBDD-A13A-4A66-A36A-1FE670D00E36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4D2BBDD-A13A-4A66-A36A-1FE670D00E36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D29E040-91CC-4B96-AD45-2037B1DC07C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D29E040-91CC-4B96-AD45-2037B1DC07C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D29E040-91CC-4B96-AD45-2037B1DC07C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D29E040-91CC-4B96-AD45-2037B1DC07C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDE95DE5-B587-4D10-AFCD-C4CA10060A48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDE95DE5-B587-4D10-AFCD-C4CA10060A48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDE95DE5-B587-4D10-AFCD-C4CA10060A48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDE95DE5-B587-4D10-AFCD-C4CA10060A48}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +97,11 @@ Global
 		{9FFE40AE-C585-4EA6-9B85-B05C9AF0AA41} = {B82C676F-F33B-4D75-9BF8-88A4706F100A}
 		{998B6227-6421-4C5E-B3CA-E2E2AD249A19} = {B82C676F-F33B-4D75-9BF8-88A4706F100A}
 		{D938464F-EDB3-4F3F-9F55-4DF8E327FE45} = {B82C676F-F33B-4D75-9BF8-88A4706F100A}
+		{4B67B646-626E-406B-9ABB-8C067C00C72A} = {B82C676F-F33B-4D75-9BF8-88A4706F100A}
+		{8C11F099-BB69-41EC-96DC-1905E247CA27} = {B82C676F-F33B-4D75-9BF8-88A4706F100A}
+		{A4D2BBDD-A13A-4A66-A36A-1FE670D00E36} = {B82C676F-F33B-4D75-9BF8-88A4706F100A}
+		{7D29E040-91CC-4B96-AD45-2037B1DC07C0} = {0F2660AF-7B44-41DA-8C80-0093D5BEA653}
+		{EDE95DE5-B587-4D10-AFCD-C4CA10060A48} = {B82C676F-F33B-4D75-9BF8-88A4706F100A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4CE68077-E3C8-4342-B560-67B903F4C5B8}

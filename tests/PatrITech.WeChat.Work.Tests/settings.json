@@ -1,0 +1,16 @@
+{
+  "baseUrl": "",
+  "defaultAccountName": "default",
+  "accounts": {
+    "default": {
+      "corpId": "ww7f8374ebb6024d2f",
+      "contactServiceSecret": "CUPzNFX4f7vLforxJaPvBa8y0G9b4E-h6Ah29F6QyQg",
+      "customerServiceSecret": "XfUlvv-lYjWJoY2RT9B_FVPBSogiOV675Z14ZmnvXy0"
+    },
+    "Test": {
+      "corpId": "ww7f8374ebb6024d2f",
+      "contactServiceSecret": "CUPzNFX4f7vLforxJaPvBa8y0G9b4E-h6Ah29F6QyQg",
+      "customerServiceSecret": "XfUlvv-lYjWJoY2RT9B_FVPBSogiOV675Z14ZmnvXy0"
+    }
+  }
+}
