@@ -15,9 +15,17 @@ namespace PatrITech.WeChat.Work
             Options = optionsAccessor.CurrentValue;
         }
 
+        private string GetAccountName(string accountName)
+        {
+            if (string.IsNullOrEmpty(Options.DefaultAccountName))
+                throw new Exception($"DefaultAccountName can not be null or empty");
+
+            return string.IsNullOrEmpty(accountName) ? Options.DefaultAccountName : accountName;
+        }
+
         private (string CorpId, string Secret) DoGetCredential(string accountName, Func<WorkOptions.ClientOptions, string> getFunc)
         {
-            if (!Options.Accounts.TryGetValue(string.IsNullOrEmpty(accountName) ? Options.DefaultAccountName : accountName, out var client))
+            if (!Options.Accounts.TryGetValue(GetAccountName(accountName), out var client))
                 throw new Exception($"Invalid AccountName: {accountName}");
 
             return (client.CorpId, getFunc(client));

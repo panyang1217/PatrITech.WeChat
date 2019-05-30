@@ -18,9 +18,18 @@ namespace PatrITech.WeChat.OfficialAccount
 
         protected (string AppId, string Secret) GetClientCredential(string accountName)
         {
-            var client = Options.Accounts[string.IsNullOrEmpty(accountName) ? Options.DefaultAccountName : accountName];
+            if (!Options.Accounts.TryGetValue(GetAccountName(accountName), out var client))
+                throw new Exception($"Invalid AccountName: {accountName}");
 
             return (client.AppId, client.Secret);
+        }
+
+        private string GetAccountName(string accountName)
+        {
+            if (string.IsNullOrEmpty(Options.DefaultAccountName))
+                throw new Exception($"DefaultAccountName can not be null or empty");
+
+            return string.IsNullOrEmpty(accountName) ? Options.DefaultAccountName : accountName;
         }
     }
 }
