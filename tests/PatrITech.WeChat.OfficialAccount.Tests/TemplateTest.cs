@@ -28,6 +28,9 @@ namespace PatrITech.WeChat.OfficialAccount.Tests
 
             result.ResultState.Successed.ShouldBeTrue();
             result.TemplateId.ShouldNotBeNullOrEmpty();
+
+            var delResult = await TemplateService.DeletePrivateTemplate(result.TemplateId);
+            delResult.Successed.ShouldBeTrue();
         }
 
         [Fact]
