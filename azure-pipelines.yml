@@ -39,10 +39,7 @@ steps:
     nobuild: true
     packagesToPack: 'src/**/*.csproj'
     packDirectory: '$(build.artifactStagingDirectory)'
-    versioningScheme: 'byPrereleaseNumber'
-    majorVersion: '1'
-    minorVersion: '0'
-    patchVersion: '0'
+    versioningScheme: 'byBuildNumber'
     verbosityPack: 'Normal'
 - task: PublishBuildArtifacts@1
   displayName: "Publish Build Artifacts"
