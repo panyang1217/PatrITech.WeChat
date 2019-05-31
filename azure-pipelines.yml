@@ -16,12 +16,15 @@ steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
 - task: DotNetCoreCLI@2
+  displayName: "test"
+  enabled: "false"
   inputs:
     command: 'test'
     projects: 'tests/**/*.csproj'
     feedsToUse: 'select'
     versioningScheme: 'off'
 - task: DotNetCoreCLI@2
+  displayName: "pack"
   inputs:
     command: 'pack'
     feedsToUse: 'select'
@@ -32,6 +35,7 @@ steps:
     minorVersion: '0'
     patchVersion: '0'
 - task: DotNetCoreCLI@2
+  displayName: "push"
   inputs:
     command: 'push'
     feedsToUse: 'select'
