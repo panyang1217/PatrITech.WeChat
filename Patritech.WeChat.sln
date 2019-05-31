@@ -13,8 +13,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatrITech.WeChat.OfficialAc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatrITech.WeChat.Core", "src\PatrITech.WeChat.Core\PatrITech.WeChat.Core.csproj", "{EDA84EDC-88F0-4E79-A411-0DCA293761DF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatrITech.WeChat.OfficialAccount.Core", "src\PatrITech.WeChat.OfficialAccount.Core\PatrITech.WeChat.OfficialAccount.Core.csproj", "{BAA58324-B310-481B-9AAE-2621BC5F709D}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatrITech.WeChat.OfficialAccount.Token", "src\PatriTech.WeChat.OfficialAccount.Token\PatrITech.WeChat.OfficialAccount.Token.csproj", "{9FFE40AE-C585-4EA6-9B85-B05C9AF0AA41}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatrITech.WeChat.OfficialAccount.User", "src\PatrITech.WeChat.OfficialAccount.User\PatrITech.WeChat.OfficialAccount.User.csproj", "{998B6227-6421-4C5E-B3CA-E2E2AD249A19}"
@@ -27,11 +25,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatrITech.WeChat.Work.Core"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatrITech.WeChat.Work.Token", "src\PatrITech.WeChat.Work.Token\PatrITech.WeChat.Work.Token.csproj", "{A4D2BBDD-A13A-4A66-A36A-1FE670D00E36}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatrITech.WeChat.Work.Tests", "tests\PatrITech.WeChat.Work.Tests\PatrITech.WeChat.Work.Tests.csproj", "{7D29E040-91CC-4B96-AD45-2037B1DC07C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatrITech.WeChat.Work.Tests", "tests\PatrITech.WeChat.Work.Tests\PatrITech.WeChat.Work.Tests.csproj", "{7D29E040-91CC-4B96-AD45-2037B1DC07C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatrITech.WeChat.Test", "src\PatrITech.WeChat.Test\PatrITech.WeChat.Test.csproj", "{EDE95DE5-B587-4D10-AFCD-C4CA10060A48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatrITech.WeChat.Test", "src\PatrITech.WeChat.Test\PatrITech.WeChat.Test.csproj", "{EDE95DE5-B587-4D10-AFCD-C4CA10060A48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatrITech.WeChat.Work.Customer", "src\PatrITech.WeChat.Work.Customer\PatrITech.WeChat.Work.Customer.csproj", "{EC332F50-15A5-4D53-A986-4797E78EA7B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatrITech.WeChat.Work.Customer", "src\PatrITech.WeChat.Work.Customer\PatrITech.WeChat.Work.Customer.csproj", "{EC332F50-15A5-4D53-A986-4797E78EA7B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatrITech.WeChat.OfficialAccount.Core", "src\PatrITech.WeChat.OfficialAccount.Core\PatrITech.WeChat.OfficialAccount.Core.csproj", "{6BFF9FD0-8B1F-4D85-8BF9-719D7C6F1048}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,10 +51,6 @@ Global
 		{EDA84EDC-88F0-4E79-A411-0DCA293761DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDA84EDC-88F0-4E79-A411-0DCA293761DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EDA84EDC-88F0-4E79-A411-0DCA293761DF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BAA58324-B310-481B-9AAE-2621BC5F709D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BAA58324-B310-481B-9AAE-2621BC5F709D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BAA58324-B310-481B-9AAE-2621BC5F709D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BAA58324-B310-481B-9AAE-2621BC5F709D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9FFE40AE-C585-4EA6-9B85-B05C9AF0AA41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9FFE40AE-C585-4EA6-9B85-B05C9AF0AA41}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9FFE40AE-C585-4EA6-9B85-B05C9AF0AA41}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -91,6 +87,10 @@ Global
 		{EC332F50-15A5-4D53-A986-4797E78EA7B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC332F50-15A5-4D53-A986-4797E78EA7B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC332F50-15A5-4D53-A986-4797E78EA7B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BFF9FD0-8B1F-4D85-8BF9-719D7C6F1048}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BFF9FD0-8B1F-4D85-8BF9-719D7C6F1048}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BFF9FD0-8B1F-4D85-8BF9-719D7C6F1048}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BFF9FD0-8B1F-4D85-8BF9-719D7C6F1048}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -99,7 +99,6 @@ Global
 		{AC9000E7-E217-44EB-8EBF-4E7498FC922A} = {0F2660AF-7B44-41DA-8C80-0093D5BEA653}
 		{055C591C-EAF4-49FD-B56C-C6A60B54A1BE} = {B82C676F-F33B-4D75-9BF8-88A4706F100A}
 		{EDA84EDC-88F0-4E79-A411-0DCA293761DF} = {B82C676F-F33B-4D75-9BF8-88A4706F100A}
-		{BAA58324-B310-481B-9AAE-2621BC5F709D} = {B82C676F-F33B-4D75-9BF8-88A4706F100A}
 		{9FFE40AE-C585-4EA6-9B85-B05C9AF0AA41} = {B82C676F-F33B-4D75-9BF8-88A4706F100A}
 		{998B6227-6421-4C5E-B3CA-E2E2AD249A19} = {B82C676F-F33B-4D75-9BF8-88A4706F100A}
 		{D938464F-EDB3-4F3F-9F55-4DF8E327FE45} = {B82C676F-F33B-4D75-9BF8-88A4706F100A}
@@ -109,6 +108,7 @@ Global
 		{7D29E040-91CC-4B96-AD45-2037B1DC07C0} = {0F2660AF-7B44-41DA-8C80-0093D5BEA653}
 		{EDE95DE5-B587-4D10-AFCD-C4CA10060A48} = {B82C676F-F33B-4D75-9BF8-88A4706F100A}
 		{EC332F50-15A5-4D53-A986-4797E78EA7B8} = {B82C676F-F33B-4D75-9BF8-88A4706F100A}
+		{6BFF9FD0-8B1F-4D85-8BF9-719D7C6F1048} = {B82C676F-F33B-4D75-9BF8-88A4706F100A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4CE68077-E3C8-4342-B560-67B903F4C5B8}

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Caching.Distributed;
 using PatrITech.WeChat.OfficialAccount.Configuration;
 using Microsoft.Extensions.Options;
+using PatrITech.WeChat.OfficialAccount.Extensions;
 
 namespace PatrITech.WeChat.OfficialAccount
 {

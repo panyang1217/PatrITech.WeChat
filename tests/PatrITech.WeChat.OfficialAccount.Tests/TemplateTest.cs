@@ -36,6 +36,7 @@ namespace PatrITech.WeChat.OfficialAccount.Tests
         [Fact]
         public async void GetAllPrivateTemplate()
         {
+            (var templateId, _) = await TemplateService.AddTemplate("TM00161");
             var result = await TemplateService.GetAllPrivateTemplate();
 
             result.ResultState.Successed.ShouldBeTrue();
@@ -44,6 +45,8 @@ namespace PatrITech.WeChat.OfficialAccount.Tests
             var template = result.Templates[0];
             template.Content.ShouldNotBeNullOrEmpty();
             template.Title.ShouldNotBeNullOrEmpty();
+
+            await TemplateService.DeletePrivateTemplate(templateId);
         }
 
         [Fact]
@@ -69,10 +72,12 @@ namespace PatrITech.WeChat.OfficialAccount.Tests
         [Fact]
         public async void Send()
         {
+            (var templateId, _) = await TemplateService.AddTemplate("TM00161");
+
             var input = new SendInput()
             {
                 ToUser = "oYUL-54BgAKpjk_bmtwSeFtKs_Sc",
-                TemplateId = "yFOwW8WaBXObHaowdbpVSL6MzMxpKpIP774U1wpeGv0"
+                TemplateId = templateId
             };
             input.Data.First = new SendInput.DataItem("First", "#173177");
             input.Data.Remark = new SendInput.DataItem("Remark", "#173177");
@@ -85,6 +90,8 @@ namespace PatrITech.WeChat.OfficialAccount.Tests
 
             result.ResultState.Successed.ShouldBeTrue();
             result.MessageId.ShouldNotBe(0);
+
+            await TemplateService.DeletePrivateTemplate(templateId);
         }
     }
 }

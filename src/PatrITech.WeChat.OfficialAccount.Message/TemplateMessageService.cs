@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using PatrITech.WeChat.OfficialAccount.Api;
 using PatrITech.WeChat.OfficialAccount.Configuration;
+using PatrITech.WeChat.OfficialAccount.Extensions;
 using PatrITech.WeChat.OfficialAccount.Model;
 using Refit;
 using System;

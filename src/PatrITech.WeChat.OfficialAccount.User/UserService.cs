@@ -5,6 +5,7 @@ using Microsoft.Extensions.Options;
 using PatrITech.WeChat.OfficialAccount.Configuration;
 using PatrITech.WeChat.OfficialAccount.Api;
 using System;
+using PatrITech.WeChat.OfficialAccount.Extensions;
 
 namespace PatrITech.WeChat.OfficialAccount
 {
