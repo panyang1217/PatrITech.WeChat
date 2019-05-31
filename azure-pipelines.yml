@@ -13,8 +13,10 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- script: dotnet build --configuration $(buildConfiguration)
-  displayName: 'dotnet build $(buildConfiguration)'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    projects: '**/*.csproj'
 - task: DotNetCoreCLI@2
   displayName: "Test"
   inputs:
@@ -26,6 +28,7 @@ steps:
   displayName: "Package"
   inputs:
     command: 'pack'
+    nobuild: true
     packagesToPack: 'src/**/*.csproj'
     packDirectory: '$(build.artifactStagingDirectory)'
     versioningScheme: 'byPrereleaseNumber'
@@ -33,16 +36,6 @@ steps:
     minorVersion: '0'
     patchVersion: '0'
     verbosityPack: 'Normal'
-- task: DotNetCoreCLI@2
-  enabled: "false"
-  displayName: "push"
-  inputs:
-    command: 'push'
-    feedsToUse: 'select'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
-    nuGetFeedType: 'internal'
-    publishVstsFeed: 'PatrITech'
-    versioningScheme: 'off'
 - task: PublishBuildArtifacts@1
   displayName: "Publish Build Artifacts"
   inputs:
