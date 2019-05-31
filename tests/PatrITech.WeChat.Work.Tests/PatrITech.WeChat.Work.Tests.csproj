@@ -13,8 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\PatrITech.WeChat.Test\PatrITech.WeChat.Test.csproj" />
     <ProjectReference Include="..\..\src\PatrITech.WeChat.Work\PatrITech.WeChat.Work.csproj" />
+    <ProjectReference Include="..\PatrITech.WeChat.Test\PatrITech.WeChat.Test.csproj" />
   </ItemGroup>
 
   <ItemGroup>

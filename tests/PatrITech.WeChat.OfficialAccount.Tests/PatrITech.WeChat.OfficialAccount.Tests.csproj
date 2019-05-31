@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
@@ -25,7 +25,7 @@
     <ProjectReference Include="..\..\src\PatriTech.WeChat.OfficialAccount.Token\PatrITech.WeChat.OfficialAccount.Token.csproj" />
     <ProjectReference Include="..\..\src\PatrITech.WeChat.OfficialAccount.User\PatrITech.WeChat.OfficialAccount.User.csproj" />
     <ProjectReference Include="..\..\src\PatrITech.WeChat.OfficialAccount\PatrITech.WeChat.OfficialAccount.csproj" />
-    <ProjectReference Include="..\..\src\PatrITech.WeChat.Test\PatrITech.WeChat.Test.csproj" />
+    <ProjectReference Include="..\PatrITech.WeChat.Test\PatrITech.WeChat.Test.csproj" />
   </ItemGroup>
 
   <ItemGroup>
