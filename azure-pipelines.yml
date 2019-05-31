@@ -16,15 +16,14 @@ steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
 - task: DotNetCoreCLI@2
-  displayName: "test"
-  enabled: "false"
+  displayName: "Test"
   inputs:
     command: 'test'
     projects: 'tests/**/*.csproj'
     feedsToUse: 'select'
     versioningScheme: 'off'
 - task: DotNetCoreCLI@2
-  displayName: "pack"
+  displayName: "Package"
   inputs:
     command: 'pack'
     feedsToUse: 'select'
