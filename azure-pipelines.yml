@@ -28,13 +28,14 @@ steps:
   inputs:
     command: 'pack'
     feedsToUse: 'select'
-    packagesToPack: '**/*.csproj'
+    packagesToPack: 'src/**/*.csproj'
     nobuild: false
     versioningScheme: 'byPrereleaseNumber'
     majorVersion: '1'
     minorVersion: '0'
     patchVersion: '0'
 - task: DotNetCoreCLI@2
+  enabled: "false"
   displayName: "push"
   inputs:
     command: 'push'
@@ -43,3 +44,9 @@ steps:
     nuGetFeedType: 'internal'
     publishVstsFeed: 'PatrITech'
     versioningScheme: 'off'
+- task: PublishBuildArtifacts@1
+  displayName: "Publish Build Artifacts"
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'PatrITech.WeChat'
+    publishLocation: 'Container'
