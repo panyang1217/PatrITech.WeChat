@@ -35,6 +35,7 @@ steps:
     minorVersion: '0'
     patchVersion: '0'
 - task: DotNetCoreCLI@2
+  enabled: "false"
   displayName: "push"
   inputs:
     command: 'push'
@@ -43,3 +44,9 @@ steps:
     nuGetFeedType: 'internal'
     publishVstsFeed: 'PatrITech'
     versioningScheme: 'off'
+- task: PublishBuildArtifacts@1
+  displayName: "Publish Build Artifacts"
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+    ArtifactName: 'PatrITech.WeChat'
+    publishLocation: 'Container'
