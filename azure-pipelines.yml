@@ -28,7 +28,7 @@ steps:
   inputs:
     command: 'pack'
     feedsToUse: 'select'
-    packagesToPack: '**/*.csproj'
+    packagesToPack: 'src/**/*.csproj'
     nobuild: false
     versioningScheme: 'byPrereleaseNumber'
     majorVersion: '1'
@@ -47,6 +47,6 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: "Publish Build Artifacts"
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'PatrITech.WeChat'
     publishLocation: 'Container'
