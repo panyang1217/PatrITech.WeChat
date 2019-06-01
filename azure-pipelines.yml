@@ -16,7 +16,7 @@ steps:
 - task: Bash@3
   inputs:
     targetType: 'inline'
-    script: 'cat src/PatrITech.WeChat.OfficialAccount.Core/PatrITech.WeChat.OfficialAccount.Core.csproj'
+    script: 'export BUILD_BUILDNUMBER=$()'
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
@@ -40,7 +40,10 @@ steps:
     nobuild: true
     packagesToPack: 'src/**/*.csproj'
     packDirectory: '$(build.artifactStagingDirectory)'
-    versioningScheme: 'byBuildNumber'
+    versioningScheme: 'byPrereleaseNumber'
+    majorVersion: 1
+    minorVersion: 0
+    patchVersion: 0
     verbosityPack: 'Normal'
 - task: PublishBuildArtifacts@1
   displayName: "Publish Build Artifacts"
