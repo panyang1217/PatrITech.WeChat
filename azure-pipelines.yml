@@ -28,6 +28,7 @@ steps:
     projects: 'tests/**/*.csproj'
     feedsToUse: 'select'
     versioningScheme: 'off'
+- script: dotnet pack src/PatrITech.WeChat.OfficialAccount.Core.csproj /p:PackageVersion=$(version) -c $(buildConfiguration)
 - task: DotNetCoreCLI@2
   displayName: "Package"
   enabled: 'false'
@@ -37,15 +38,6 @@ steps:
     nobuild: true
     packagesToPack: 'src/**/*.csproj'
     packDirectory: '$(build.artifactStagingDirectory)'
-    versioningScheme: 'byPrereleaseNumber'
-    majorVersion: 1
-    minorVersion: 0
-    patchVersion: 0
-    verbosityPack: 'Normal'
-- task: NuGetCommand@2
-  inputs:
-    command: 'pack'
-    packagesToPack: 'src/**/*.csproj'
     versioningScheme: 'byPrereleaseNumber'
     majorVersion: 1
     minorVersion: 0
