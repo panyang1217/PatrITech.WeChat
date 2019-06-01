@@ -7,10 +7,11 @@ trigger:
 - master
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'ubuntu-16.04'
 
 variables:
   buildConfiguration: 'Release'
+  version: '1.0.0-$(build.buildNumber)'
 
 steps:
 - task: DotNetCoreCLI@2
@@ -28,15 +29,18 @@ steps:
     projects: 'tests/**/*.csproj'
     feedsToUse: 'select'
     versioningScheme: 'off'
+# - script: dotnet pack src/PatrITech.WeChat.OfficialAccount.Core/PatrITech.WeChat.OfficialAccount.Core.csproj /p:PackageVersion=$(version) -c $(buildConfiguration) -o $(build.artifactStagingDirectory)
 - task: DotNetCoreCLI@2
   displayName: "Package"
+  enabled: 'true'
   inputs:
     command: 'pack'
     arguments: -c $(buildConfiguration)
     nobuild: true
-    packagesToPack: 'src/**/*.csproj'
+    packagesToPack: 'src/*/*.csproj'
     packDirectory: '$(build.artifactStagingDirectory)'
-    versioningScheme: 'byPrereleaseNumber'
+    versionEnvVar: version
+    versioningScheme: 'byEnvVar'
     majorVersion: 1
     minorVersion: 0
     patchVersion: 0
