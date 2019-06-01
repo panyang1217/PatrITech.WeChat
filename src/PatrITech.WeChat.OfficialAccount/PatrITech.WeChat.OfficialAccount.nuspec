@@ -15,8 +15,4 @@
     <copyright>Copyright 2019</copyright>
     <tags>WeChat</tags>
   </metadata>
-  <files>
-    <file src="bin\Debug\netstandard2.0\PatrITech.WeChat*.dll" target="lib" />
-    <file src="bin\Debug\netstandard2.0\PatrITech.WeChat*.pdb" target="lib" />
-  </files>
 </package>
