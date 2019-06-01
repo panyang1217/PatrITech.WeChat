@@ -44,7 +44,7 @@ steps:
     majorVersion: 1
     minorVersion: 0
     patchVersion: 0
-    verbosityPack: 'Normal'
+    verbosityPack: Diagnostic
 - task: PublishBuildArtifacts@1
   displayName: "Publish Build Artifacts"
   inputs:
