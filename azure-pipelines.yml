@@ -13,12 +13,18 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- script: dotnet build --configuration $(buildConfiguration)
-  displayName: 'dotnet build $(buildConfiguration)'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    projects: '**/*.csproj'
+    arguments: -c $(buildConfiguration)
 - task: DotNetCoreCLI@2
   displayName: "Test"
+  enabled: 'false'
   inputs:
     command: 'test'
+    arguments: -c $(buildConfiguration)
+    nobuild: true
     projects: 'tests/**/*.csproj'
     feedsToUse: 'select'
     versioningScheme: 'off'
@@ -26,26 +32,18 @@ steps:
   displayName: "Package"
   inputs:
     command: 'pack'
+    arguments: -c $(buildConfiguration)
+    nobuild: true
     packagesToPack: 'src/**/*.csproj'
+    packDirectory: '$(build.artifactStagingDirectory)'
     versioningScheme: 'byPrereleaseNumber'
-    majorVersion: '1'
-    minorVersion: '0'
-    patchVersion: '0'
+    majorVersion: 1
+    minorVersion: 0
+    patchVersion: 0
     verbosityPack: 'Normal'
-- task: DotNetCoreCLI@2
-  enabled: "false"
-  displayName: "push"
-  inputs:
-    command: 'push'
-    feedsToUse: 'select'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
-    nuGetFeedType: 'internal'
-    publishVstsFeed: 'PatrITech'
-    versioningScheme: 'off'
 - task: PublishBuildArtifacts@1
   displayName: "Publish Build Artifacts"
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'PatrITech.WeChat'
     publishLocation: 'Container'
-    
