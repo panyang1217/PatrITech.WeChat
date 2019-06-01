@@ -30,6 +30,7 @@ steps:
     versioningScheme: 'off'
 - task: DotNetCoreCLI@2
   displayName: "Package"
+  enabled: 'false'
   inputs:
     command: 'pack'
     arguments: -c $(buildConfiguration)
@@ -40,6 +41,12 @@ steps:
     majorVersion: 1
     minorVersion: 0
     patchVersion: 0
+    verbosityPack: 'Normal'
+- task: NuGetCommand@2
+  inputs:
+    command: 'pack'
+    packagesToPack: 'src/**/*.csproj'
+    versioningScheme: 'byBuildNumber'
     verbosityPack: 'Normal'
 - task: PublishBuildArtifacts@1
   displayName: "Publish Build Artifacts"
