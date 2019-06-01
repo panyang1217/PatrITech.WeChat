@@ -29,7 +29,7 @@ steps:
     projects: 'tests/**/*.csproj'
     feedsToUse: 'select'
     versioningScheme: 'off'
-- script: dotnet pack src/PatrITech.WeChat.OfficialAccount.Core/PatrITech.WeChat.OfficialAccount.Core.csproj /p:PackageVersion=$(version) -c $(buildConfiguration)
+- script: dotnet pack src/PatrITech.WeChat.OfficialAccount.Core/PatrITech.WeChat.OfficialAccount.Core.csproj /p:PackageVersion=$(version) -c $(buildConfiguration) -o $(build.artifactStagingDirectory)
 - task: DotNetCoreCLI@2
   displayName: "Package"
   enabled: 'false'
