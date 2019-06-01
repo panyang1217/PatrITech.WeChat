@@ -37,9 +37,10 @@ steps:
     command: 'pack'
     arguments: -c $(buildConfiguration)
     nobuild: true
-    packagesToPack: 'src/**/*.csproj'
+    packagesToPack: 'src/*/*.csproj'
     packDirectory: '$(build.artifactStagingDirectory)'
-    versioningScheme: 'byPrereleaseNumber'
+    versionEnvVar: version
+    versioningScheme: 'byEnvVar'
     majorVersion: 1
     minorVersion: 0
     patchVersion: 0
