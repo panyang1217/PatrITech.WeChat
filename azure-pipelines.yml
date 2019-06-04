@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: 'ubuntu-16.04'
+  vmImage: 'windows-2019'
 
 variables:
   buildConfiguration: 'Release'
@@ -21,15 +21,14 @@ steps:
     arguments: -c $(buildConfiguration)
 - task: DotNetCoreCLI@2
   displayName: "Test"
-  enabled: 'false'
+  enabled: 'true'
   inputs:
     command: 'test'
-    arguments: -c $(buildConfiguration)
+    arguments: -c $(buildConfiguration) --logger trx --collect "Code coverage"
     nobuild: true
     projects: 'tests/**/*.csproj'
     feedsToUse: 'select'
     versioningScheme: 'off'
-# - script: dotnet pack src/PatrITech.WeChat.OfficialAccount.Core/PatrITech.WeChat.OfficialAccount.Core.csproj /p:PackageVersion=$(version) -c $(buildConfiguration) -o $(build.artifactStagingDirectory)
 - task: DotNetCoreCLI@2
   displayName: "Package"
   enabled: 'true'
@@ -41,14 +40,7 @@ steps:
     packDirectory: '$(build.artifactStagingDirectory)'
     versionEnvVar: version
     versioningScheme: 'byEnvVar'
-    majorVersion: 1
-    minorVersion: 0
-    patchVersion: 0
-    verbosityPack: Diagnostic
-- task: CopyFiles@2
-  inputs:
-    Contents: '**/*.nuspec'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    verbosityPack: Minimal
 - task: PublishBuildArtifacts@1
   displayName: "Publish Build Artifacts"
   inputs:
