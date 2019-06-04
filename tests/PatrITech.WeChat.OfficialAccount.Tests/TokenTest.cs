@@ -18,7 +18,7 @@ namespace PatrITech.WeChat.OfficialAccount.Tests
 
         protected override void ConfigureService(IServiceCollection services, IConfiguration config)
         {
-            services.AddOfficialAccount(config)
+            services.AddOfficialAccountModule(config)
                 .WithUserService();
         }
 

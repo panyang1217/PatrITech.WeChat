@@ -18,7 +18,7 @@ namespace PatrITech.WeChat.OfficialAccount
     {
         private readonly ITemplateMessageClient _templateServiceClient;
 
-        public TemplateMessageService(IOptionsMonitor<OfficialAccountOptions> optionsAccessor, ITokenService tokenService) : base(optionsAccessor, tokenService)
+        public TemplateMessageService(IOptionsMonitor<OfficialAccountModuleOptions> optionsAccessor, ITokenService tokenService) : base(optionsAccessor, tokenService)
         {
             _templateServiceClient = RestService.For<ITemplateMessageClient>(OfficialAccountConsts.ServiceUrl);
         }

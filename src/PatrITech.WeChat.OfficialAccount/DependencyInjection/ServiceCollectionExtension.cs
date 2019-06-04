@@ -9,13 +9,22 @@ namespace PatrITech.WeChat.OfficialAccount.DependencyInjection
 {
     public static class ServiceCollectionExtension
     {
-        public static IOfficialAccountServiceBuilder AddOfficialAccount(this IServiceCollection services, IConfiguration config)
+        public static IOfficialAccountServiceBuilder AddOfficialAccountModule(this IServiceCollection services, IConfiguration config)
         {
-            services.Configure<OfficialAccountOptions>(config);
+            services.Configure<OfficialAccountModuleOptions>(config);
             services.AddTransient<TokenService>();
             services.AddTransient<ITokenService, TokenService>();
 
             return new OfficialAccountServiceBuilder(services, config);
+        }
+
+        public static IOfficialAccountServiceBuilder AddOfficialAccountModule(this IServiceCollection services, Action<OfficialAccountModuleOptions> configureOptions)
+        {
+            services.Configure(configureOptions);
+            services.AddTransient<TokenService>();
+            services.AddTransient<ITokenService, TokenService>();
+
+            return new OfficialAccountServiceBuilder(services, null);
         }
     }
 }

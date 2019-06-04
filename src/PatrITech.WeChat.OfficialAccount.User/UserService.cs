@@ -13,7 +13,7 @@ namespace PatrITech.WeChat.OfficialAccount
     {
         private readonly IUserClient _userClient;
 
-        public UserService(IOptionsMonitor<OfficialAccountOptions> optionsAccessor, ITokenService tokenService) :
+        public UserService(IOptionsMonitor<OfficialAccountModuleOptions> optionsAccessor, ITokenService tokenService) :
             base(optionsAccessor, tokenService)
         {
             _userClient = RestService.For<IUserClient>(BaseUrl);

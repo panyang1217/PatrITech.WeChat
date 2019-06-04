@@ -8,10 +8,10 @@ namespace PatrITech.WeChat.OfficialAccount
 {
     public abstract class ServiceBase
     {
-        protected OfficialAccountOptions Options { get; }
+        protected OfficialAccountModuleOptions Options { get; }
         public string BaseUrl { get => string.IsNullOrEmpty(Options?.BaseUrl) ? OfficialAccountConsts.ServiceUrl : Options.BaseUrl; }
 
-        public ServiceBase(IOptionsMonitor<OfficialAccountOptions> optionsAccessor)
+        public ServiceBase(IOptionsMonitor<OfficialAccountModuleOptions> optionsAccessor)
         {
             Options = optionsAccessor.CurrentValue;
         }

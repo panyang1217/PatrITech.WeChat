@@ -20,7 +20,7 @@ namespace PatrITech.WeChat.OfficialAccount
         private readonly ITokenClient _tokenClient;
         private readonly IDistributedCache _cache;
 
-        public TokenService(IOptionsMonitor<OfficialAccountOptions> optionsAccessor, IDistributedCache cache)
+        public TokenService(IOptionsMonitor<OfficialAccountModuleOptions> optionsAccessor, IDistributedCache cache)
             : base(optionsAccessor)
         {
             _cache = cache;

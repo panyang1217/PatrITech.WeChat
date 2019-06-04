@@ -11,7 +11,7 @@ namespace PatrITech.WeChat.OfficialAccount
     public class SecuredServiceBase : ServiceBase
     {
         protected ITokenService TokenService { get; }
-        public SecuredServiceBase(IOptionsMonitor<OfficialAccountOptions> optionsAccessor
+        public SecuredServiceBase(IOptionsMonitor<OfficialAccountModuleOptions> optionsAccessor
             , ITokenService tokenService) : base(optionsAccessor)
         {
             TokenService = tokenService;
