@@ -26,8 +26,20 @@ namespace PatrITech.WeChat.Work.Api
         /// <returns></returns>
         /// <seealso cref="https://work.weixin.qq.com/api/doc#90000/90135/91555"/>
         [Get("/cgi-bin/externalcontact/list")]
-        Task<HttpResponseMessage> ListExternalContract(
+        Task<HttpResponseMessage> ListExternalContact(
             [AliasAs("access_token")][Query] string accessToken,
             [AliasAs("userid")][Query] string userId);
+
+        /// <summary>
+        /// 获取外部联系人详情
+        /// </summary>
+        /// <param name="accessToken"></param>
+        /// <param name="externalUserId"></param>
+        /// <returns></returns>
+        /// <seealso cref="https://work.weixin.qq.com/api/doc#90000/90135/91556"/>
+        [Get("/cgi-bin/externalcontact/get")]
+        Task<HttpResponseMessage> GetExternalContact(
+            [AliasAs("access_token")][Query] string accessToken,
+            [AliasAs("external_userid")][Query] string externalUserId);
     }
 }

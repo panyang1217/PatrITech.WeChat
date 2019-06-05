@@ -37,19 +37,34 @@ namespace PatrITech.WeChat.Work
             => Invoke(t => DoListFollowUser(t), credential);
         #endregion
 
-        #region ListExternalUser
-        protected async Task<(string[] ExternalUserIds, ResultState ResultState)> DoListExternalUser(IToken token, string userId)
+        #region ListExternalContact
+        protected async Task<(string[] ExternalUserIds, ResultState ResultState)> DoListExternalContact(IToken token, string userId)
         {
 
-            var resp = await _customerClient.ListExternalContract(token.Token, userId);
+            var resp = await _customerClient.ListExternalContact(token.Token, userId);
             return await resp.ReadAsResults<string>("$.external_userid[*]");
         }
         public Task<(string[] ExternalUserIds, ResultState ResultState)> ListExternalUser(string userId)
-            => Invoke(t => DoListExternalUser(t, userId),null);
+            => Invoke(t => DoListExternalContact(t, userId),null);
         public Task<(string[] ExternalUserIds, ResultState ResultState)> ListExternalUser(string userId, string accountName)
-            => Invoke(t => DoListExternalUser(t, userId), accountName, null);
+            => Invoke(t => DoListExternalContact(t, userId), accountName, null);
         public Task<(string[] ExternalUserIds, ResultState ResultState)> ListExternalUser(string userId, (string corpId, string secret) credential)
-            => Invoke(t => DoListExternalUser(t, userId), credential);
+            => Invoke(t => DoListExternalContact(t, userId), credential);
+        #endregion
+
+        #region GetExternalContact
+        protected async Task<(GetExternalContactResult Result, ResultState ResultState)> DoGetExternalContact(IToken token, string externalUserId)
+        {
+            var resp = await _customerClient.GetExternalContact(token.Token, externalUserId);
+            return await resp.ReadAsResult<GetExternalContactResult>();
+        }
+        public Task<(GetExternalContactResult Result, ResultState ResultState)> GetExternalContact(string externalUserId)
+            => Invoke(t => DoGetExternalContact(t, externalUserId), null);
+        public Task<(GetExternalContactResult Result, ResultState ResultState)> GetExternalContact(string externalUserId, string accountName)
+            => Invoke(t => DoGetExternalContact(t, externalUserId),accountName, null);
+        public Task<(GetExternalContactResult Result, ResultState ResultState)> GetExternalContact(string externalUserId, (string corpId, string secret) credential)
+            => Invoke(t => DoGetExternalContact(t, externalUserId), credential);
+
         #endregion
     }
 }

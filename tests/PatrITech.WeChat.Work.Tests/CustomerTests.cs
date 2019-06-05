@@ -46,5 +46,18 @@ namespace PatrITech.WeChat.Work.Tests
                 exUserIdList.Length.ShouldBeGreaterThan(0);
             }
         }
+
+        [Fact(DisplayName = "获取外部联系人详情")]
+        public async void GetExternalContact_Test()
+        {
+            var exUserId = "wm_8uxBwAAoHDhnGRl-xEBSPXALvhiOQ";
+
+            (var result, var state) = await CustomerService.GetExternalContact(exUserId);
+
+            state.Successed.ShouldBe(true);
+            result.FollowUsers.ShouldNotBeEmpty();
+            result.ExternalContact.ShouldNotBeNull();
+            result.ExternalContact.Name.ShouldNotBeNullOrEmpty();
+        }
     }
 }
