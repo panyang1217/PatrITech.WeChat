@@ -25,7 +25,7 @@ namespace PatrITech.WeChat.Core
 
         public override void WriteJson(JsonWriter writer, DateTime value, JsonSerializer serializer)
         {
-            throw new NotImplementedException();
+            writer.WriteValue(value);
         }
     }
 }

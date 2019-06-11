@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
 using PatrITech.WeChat.Test;
 using PatrITech.WeChat.Work.DependencyInjection;
 using Shouldly;
@@ -58,6 +59,8 @@ namespace PatrITech.WeChat.Work.Tests
             result.FollowUsers.ShouldNotBeEmpty();
             result.ExternalContact.ShouldNotBeNull();
             result.ExternalContact.Name.ShouldNotBeNullOrEmpty();
+
+            var json = JsonConvert.SerializeObject(result.FollowUsers);
         }
     }
 }
