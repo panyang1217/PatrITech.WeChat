@@ -19,6 +19,11 @@ steps:
     command: 'build'
     projects: '**/*.csproj'
     arguments: -c $(buildConfiguration)
+- task: DownloadSecureFile@1
+  inputs:
+    secureFile: 'PatrITech.WeChat.Work.Tests.settings.json'
+- script: cp $(Agent.TempDirectory)/PatrITech.WeChat.Work.Tests.settings.json tests/PatrITech.WeChat.Work.Tests/bin/Release/netcoreapp2.2/settings.json -f
+  displayName: Copy Settings File
 - task: DotNetCoreCLI@2
   displayName: "Test"
   enabled: 'true'
