@@ -7,10 +7,10 @@ namespace PatrITech.WeChat.Work
 {
     public abstract class ServiceBase
     {
-        protected WorkOptions Options { get; }
+        protected WorkModuleOptions Options { get; }
         public string BaseUrl { get => string.IsNullOrEmpty(Options?.BaseUrl) ? WorkConsts.ServiceUrl : Options.BaseUrl; }
 
-        public ServiceBase(IOptionsMonitor<WorkOptions> optionsAccessor)
+        public ServiceBase(IOptionsMonitor<WorkModuleOptions> optionsAccessor)
         {
             Options = optionsAccessor.CurrentValue;
         }
@@ -23,7 +23,7 @@ namespace PatrITech.WeChat.Work
             return string.IsNullOrEmpty(accountName) ? Options.DefaultAccountName : accountName;
         }
 
-        private (string CorpId, string Secret) DoGetCredential(string accountName, Func<WorkOptions.ClientOptions, string> getFunc)
+        private (string CorpId, string Secret) DoGetCredential(string accountName, Func<WorkModuleOptions.ClientOptions, string> getFunc)
         {
             if (!Options.Accounts.TryGetValue(GetAccountName(accountName), out var client))
                 throw new Exception($"Invalid AccountName: {accountName}");

@@ -16,7 +16,7 @@ namespace PatrITech.WeChat.Work
     {
         private readonly ICustomerClient _customerClient;
 
-        public CustomerService(IOptionsMonitor<WorkOptions> optionsAccessor, ITokenService tokenService) : base(optionsAccessor, tokenService)
+        public CustomerService(IOptionsMonitor<WorkModuleOptions> optionsAccessor, ITokenService tokenService) : base(optionsAccessor, tokenService)
         {
             AccessTokenType = AccessTokenType.Customer;
 

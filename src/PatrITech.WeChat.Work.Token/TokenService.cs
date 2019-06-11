@@ -19,7 +19,7 @@ namespace PatrITech.WeChat.Work
         private readonly ITokenClient _tokenClient;
         private readonly IDistributedCache _cache;
 
-        public TokenService(IDistributedCache cache, IOptionsMonitor<WorkOptions> option) : base(option)
+        public TokenService(IDistributedCache cache, IOptionsMonitor<WorkModuleOptions> option) : base(option)
         {
             _tokenClient = RestService.For<ITokenClient>(BaseUrl);
             _cache = cache;

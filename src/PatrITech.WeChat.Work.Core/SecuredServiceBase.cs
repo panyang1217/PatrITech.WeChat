@@ -15,7 +15,7 @@ namespace PatrITech.WeChat.Work
 
         protected AccessTokenType AccessTokenType { get; set; }
 
-        public SecuredServiceBase(IOptionsMonitor<WorkOptions> optionsAccessor
+        public SecuredServiceBase(IOptionsMonitor<WorkModuleOptions> optionsAccessor
             , ITokenService tokenService) : base(optionsAccessor)
         {
             TokenService = tokenService;
