@@ -18,8 +18,8 @@ namespace PatrITech.WeChat.Work.Tests
             {
                 opt.DefaultAccountName = "Default";
                 opt.AddAccount("Default", clientOpt => {
-                    clientOpt.CorpId = "ww7f8374ebb6024d2f";
-                    clientOpt.CustomerServiceSecret = "XfUlvv-lYjWJoY2RT9B_FVPBSogiOV675Z14ZmnvXy0";
+                    clientOpt.CorpId = config["accounts:default:corpId"];
+                    clientOpt.CustomerServiceSecret = config["accounts:default:customerServiceSecret"];
                 });
             });
         }

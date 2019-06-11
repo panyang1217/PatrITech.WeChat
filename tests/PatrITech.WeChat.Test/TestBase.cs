@@ -28,6 +28,7 @@ namespace PatrITech.WeChat.Test
             return new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("settings.json")
+                .AddJsonFile("settings.local.json", true)
                 .Build();
         }
 

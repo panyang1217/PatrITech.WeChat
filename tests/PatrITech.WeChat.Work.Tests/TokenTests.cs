@@ -10,18 +10,22 @@ namespace PatrITech.WeChat.Work.Tests
 {
     public class TokenTests : TestBase
     {
+        private IConfiguration _config;
+
         public TokenService TokenService { get => Provider.GetService<TokenService>(); }
 
         protected override void ConfigureService(IServiceCollection services, IConfiguration config)
         {
             services.AddWorkModule(config);
+            _config = config;
         }
 
         [Fact]
         public async void GetAccessToken_Test()
         {
-            const string corpId = "ww7f8374ebb6024d2f";
-            const string secret = "XfUlvv-lYjWJoY2RT9B_FVPBSogiOV675Z14ZmnvXy0";
+            string corpId = _config["accounts:default:corpId"];
+            string secret = _config["accounts:default:customerServiceSecret"];
+
             (var token, var resultState) = await TokenService.GetAccessToken(corpId, secret);
 
             resultState.Successed.ShouldBeTrue();
